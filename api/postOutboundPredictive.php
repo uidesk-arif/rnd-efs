@@ -1,8 +1,8 @@
 <?php
-if (!isset($_GET['jidON'])) {
-    $result['status'] = false;
-    $result['msg'] = "Result postOutboundPredictive";
-} else {
+// if (!isset($_GET['jidON'])) {
+//     $result['status'] = false;
+//     $result['msg'] = "Result postOutboundPredictive";
+// } else {
     $query_outboundlistefs = $koneksi->query("SELECT * FROM OutboundListEFS");
     if ($query_outboundlistefs->num_rows == 0) {
         $result['status'] = false;
@@ -41,4 +41,4 @@ if (!isset($_GET['jidON'])) {
         $result['msg'] = "Result postOutboundPredictive";
         $result['datas'] = $curl2Api;
     }
-}
+// }
