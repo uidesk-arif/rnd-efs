@@ -5,7 +5,7 @@ if (!function_exists("curl_post")) {
     {
         $headers = $postHeader ?? [];
         if($asJson) {
-            $headers["Content-Type"] = "application/json";
+            $headers[] = "Content-Type: application/json";
         }
 
         $cURLConnection = curl_init($url);

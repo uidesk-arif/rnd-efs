@@ -49,7 +49,7 @@
                     
                     $body['data_campaign'][] = $data_campaign;
 
-                    $curl2Api = curl_post("https://demo-1.c-icare.cc/outbound/console/api/data/PUSH", $body, ['Authorization' => "Bearer dc5d357038a069b0c970b7954c82b61F43146a9dccd77a58762e5B1968009e7D"], true);
+                    $curl2Api = curl_post("https://demo-1.c-icare.cc/outbound/console/api/data/PUSH", $body, ["Authorization: Bearer  dc5d357038a069b0c970b7954c82b61F43146a9dccd77a58762e5B1968009e7D"], true);
                     
 
                     $result['status'] = true;
