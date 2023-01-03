@@ -69,6 +69,8 @@
             }
         }
     }
+    
+    $koneksi->query("TRUNCATE TABLE OutboundListEFS");
 
     foreach ($activePhones as $key => $activePhone) {
         $check_query = $koneksi->query("SELECT COUNT(*) as count FROM OutboundListEFS WHERE JidON='$activePhone[_jidOn]'");
