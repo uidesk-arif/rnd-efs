@@ -16,6 +16,6 @@ if (!function_exists("curl_post")) {
         $apiResponse = curl_exec($cURLConnection);
         curl_close($cURLConnection);
 
-        return $apiResponse;
+        return ["body" => $postData, "headers" => $headers, "response" => $apiResponse];
     }
 }
