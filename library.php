@@ -10,7 +10,7 @@ if (!function_exists("curl_post")) {
 
         $cURLConnection = curl_init($url);
         curl_setopt($cURLConnection, CURLOPT_POST, 1);
-        curl_setopt($cURLConnection, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($cURLConnection, CURLOPT_POSTFIELDS, json_encode($postData));
         curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($cURLConnection, CURLOPT_HTTPHEADER, $headers);
 
