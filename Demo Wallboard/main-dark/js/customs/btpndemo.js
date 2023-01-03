@@ -7,7 +7,7 @@ $(document).ready(() => {
 })
 
 function widget_small() {
-    $.getJSON("/rnd-efs/api.php?cmd=btpnDemoWidgetSmall", (result) => {
+    $.getJSON("/rnd/api.php?cmd=btpnDemoWidgetSmall", (result) => {
         if (result.status) {
             $('#value-interest').text(result.datas.interest ?? 0)
             $('#value-approved').text(result.datas.approved ?? 0)
@@ -18,7 +18,7 @@ function widget_small() {
 }
 
 function widget_interest_indicator() {
-    $.getJSON("/rnd-efs/api.php?cmd=btpnDemoWidgetInterestIndicator", (result) => {
+    $.getJSON("/rnd/api.php?cmd=btpnDemoWidgetInterestIndicator", (result) => {
         if (result.status) {
             let total = result.datas.total
             let quarter = total/4;
@@ -78,7 +78,7 @@ function widget_interest_indicator() {
 }
 
 function widget_interest_indicator_update() {
-    $.getJSON("/rnd-efs/api.php?cmd=btpnDemoWidgetInterestIndicator", (result) => {
+    $.getJSON("/rnd/api.php?cmd=btpnDemoWidgetInterestIndicator", (result) => {
         if (result.status) {
             let total = result.datas.total
             let quarter = total/4;
