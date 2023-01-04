@@ -9,10 +9,10 @@ $(document).ready(() => {
 function widget_small() {
     $.getJSON("/rnd/api.php?cmd=btpnDemoWidgetSmall", (result) => {
         if (result.status) {
-            $('#value-interest').text(result.datas.interest ?? 0)
-            $('#value-approved').text(result.datas.approved ?? 0)
-            $('#value-not-approved').text(result.datas['not-approved'] ?? 0)
-            $('#value-callback').text(result.datas.callback ?? 0)
+            $('#value-interest').text(result.datas['Answer Follow Up'] ?? 0)
+            $('#value-approved').text(result.datas['Done Approved'] ?? 0)
+            $('#value-not-approved').text(result.datas['Done Not Approved'] ?? 0)
+            $('#value-callback').text(result.datas['Busy'] ?? 0)
         }
     })
 }
