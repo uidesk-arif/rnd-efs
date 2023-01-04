@@ -11,6 +11,7 @@
         if($_GET['cmd'] == "btpnDemoWidgetSmall") include "api/btpnDemoWidgetSmall.php";
         if($_GET['cmd'] == "btpnDemoWidgetInterestIndicator") include "api/btpnDemoWidgetInterestIndicator.php";
         if($_GET['cmd'] == "listAgents") include "api/listAgents.php";
+        if($_GET['cmd'] == "agentListGroup") include "api/agentListGroup.php";
     }
 
     echo json_encode($result);

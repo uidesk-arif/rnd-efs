@@ -36,27 +36,15 @@ if (isset($_POST['submit'])) {
     ></script>
   </head>
   <body>
-    <div class="container-fluid p-0">
-      <nav class="navbar fixed-top  navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-        </div>
-      </nav>
-    </div>
-    <div class="container" style="margin-top: 70px;">
+    <div class="container" style="margin-top: 20px;">
         <form method="post" enctype="multipart/form-data">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Upload ejs File</h5>
+                    <h5 class="card-title">Format EFS Json</h5>
                 </div>
                 <div class="card-body">
                     <?php if(isset($success)) { ?>
                         <div class="alert alert-success"><b>Success!!</b> <?= $success ?></div>
-                        <?php if(isset($results)) { ?>
-                            <div class="card card-body">
-                                <?= $results ?>
-                            </div>
-                        <?php } ?>
                     <?php } ?>
                     <?php if(isset($error)) { ?>
                         <div class="alert alert-danger"><b>Error!!</b> <?= $error ?></div>
@@ -70,6 +58,37 @@ if (isset($_POST['submit'])) {
                 </div>
             </div>
         </form>
+
+        
+        <?php if(isset($datas)) { ?>
+            <div class="card card-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <?php
+                      if(isset($colums_outbound)) {
+                        while ($column = $colums_outbound->fetch_assoc()) {
+                          echo '<th>'.$column['Field'].'</th>';
+                        }
+                      }
+                    ?>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                    foreach($datas as $data) {
+                      $keys = array_keys($data);
+                      echo "<tr>";
+                      foreach ($keys as $key) {
+                        echo "<td>".$data[$key]."</td>";
+                      }
+                      echo "</tr>";
+                    }
+                  ?>
+                </tbody>
+              </table>
+            </div>
+        <?php } ?>
     </div>
   </body>
 </html>
