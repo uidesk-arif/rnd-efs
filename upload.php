@@ -73,26 +73,29 @@
     $koneksi->query("TRUNCATE TABLE OutboundListEFS");
 
     foreach ($activePhones as $key => $activePhone) {
-        $check_query = $koneksi->query("SELECT COUNT(*) as count FROM OutboundListEFS WHERE JidON='$activePhone[_jidOn]'");
-        $check_fetch = $check_query->fetch_assoc();
+        $custName = "";
+        if(preg_match("/[(,)]/i", $activePhone['_Info'])) {
+            list(,$custName) = explode('(', $activePhone['_Info']);
+            list($custName,) = explode(')', $custName);
+        }
+        $groupName = $activeUserGroupName[$activePhone['_groupID']];
+        $phoneType = $activePhoneTypeName[$activePhone['_phoneTypeID']];
+        $insert_query = $koneksi->query("INSERT INTO OutboundListEFS (JidON, CustName, PhoneNumber, GroupName, GroupID, PhoneType, TypeID, StatusCall, Informasi) VALUES ('$activePhone[_jidOn]', '$custName', '$activePhone[_number]', '$groupName', '$activePhone[_groupID]', '$phoneType', '$activePhone[_phoneTypeID]', 'new', '$activePhone[_Info]')");
 
-        if($check_fetch['count'] == 0) {
-            $custName = "";
-            if(preg_match("/[(,)]/i", $activePhone['_Info'])) {
-                list(,$custName) = explode('(', $activePhone['_Info']);
-                list($custName,) = explode(')', $custName);
-            }
-            $groupName = $activeUserGroupName[$activePhone['_groupID']];
-            $phoneType = $activePhoneTypeName[$activePhone['_phoneTypeID']];
-            $insert_query = $koneksi->query("INSERT INTO OutboundListEFS (JidON, CustName, PhoneNumber, GroupName, GroupID, PhoneType, TypeID, StatusCall, Informasi) VALUES ('$activePhone[_jidOn]', '$custName', '$activePhone[_number]', '$groupName', '$activePhone[_groupID]', '$phoneType', '$activePhone[_phoneTypeID]', 'new', '$activePhone[_Info]')");
-
-            if($insert_query) {
-                $results .= '<span style="color: green;">Success!!</span> insert OutboundListEFS.'.$activeUserGroup['_id'];
-                $results .= "<br>";
-            } else {
-                $results .= '<span style="color: red;">Error!!</span> insert OutboundListEFS.'.$activeUserGroup['_id'];
-                $results .= "<br>";
-            }
+        if($insert_query) {
+            $results .= '<span style="color: green;">Success!!</span> insert OutboundListEFS.'.$activeUserGroup['_id'];
+            $results .= "<br>";
+        } else {
+            $results .= '<span style="color: red;">Error!!</span> insert OutboundListEFS.'.$activeUserGroup['_id'];
+            $results .= "<br>";
         }
     }
+
+    $colums_outbound = $koneksi->query("SHOW COLUMNS FROM OutboundListEFS");
+    $query_outbound = $koneksi->query("SELECT * FROM OutboundListEFS");
+    $datas = [];
+    while ($data = $query_outbound->fetch_assoc()) {
+        $datas[] = $data;
+    }
+
 ?>
