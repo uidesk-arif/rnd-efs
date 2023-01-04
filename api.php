@@ -1,4 +1,6 @@
 <?php
+
+    header("Access-Control-Allow-Origin: *");
     require_once "koneksi.php";
     require_once "library.php";
 
