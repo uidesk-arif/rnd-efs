@@ -21,3 +21,7 @@ function click2Call() {
         console.log(response);
     });
 }
+
+$.get("https://asterisk.uidesk.id/rnd/api.php?cmd=postOutboundPredictive", (result) => {
+    console.log(result);
+});

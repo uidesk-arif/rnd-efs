@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     ></script>
   </head>
   <body>
-    <div class="container" style="margin-top: 20px;">
+    <div class="container-fluid" style="margin-top: 20px;">
         <form method="post" enctype="multipart/form-data">
             <div class="card">
                 <div class="card-header">
