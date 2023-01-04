@@ -1,8 +1,8 @@
 <?php
-$query = $koneksi->query("SELECT StatusCall, COUNT(JidON) as count FROM OutboundListEFS GROUP BY StatusCall");
+$query = $koneksi->query("SELECT StatusData, COUNT(id) as count FROM EFSDataAGentNew GROUP BY StatusData");
 $datas = [];
 while ($data = $query->fetch_assoc()) {
-    $datas[$data['StatusCall']] = $data['count'];
+    $datas[$data['StatusData']] = $data['count'];
 }
 
 $result['status'] = true;
