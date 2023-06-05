@@ -3,6 +3,7 @@
 //     $result['status'] = false;
 //     $result['msg'] = "Result postOutboundPredictive";
 // } else {
+
     $query_outboundlistefs = $koneksi->query("SELECT * FROM OutboundListEFS");
     if ($query_outboundlistefs->num_rows == 0) {
         $result['status'] = false;
@@ -15,6 +16,7 @@
         while ($fetch_outboundlistefs = $query_outboundlistefs->fetch_assoc()) {
 
             $data_campaign = [
+                "form_uniqueid" => $fetch_outboundlistefs['JidON'],
                 "form_debtors_full_name" => $fetch_outboundlistefs['CustName'],
                 "form_oldest_dpd" => "123",
                 "form_loan_balance" => "123",
@@ -41,4 +43,5 @@
         $result['msg'] = "Result postOutboundPredictive";
         $result['datas'] = $curl2Api;
     }
+    
 // }

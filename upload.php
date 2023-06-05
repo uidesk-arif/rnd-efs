@@ -70,7 +70,7 @@
         }
     }
     
-    $koneksi->query("TRUNCATE TABLE OutboundListEFS");
+    // $koneksi->query("TRUNCATE TABLE OutboundListEFS");
 
     foreach ($activePhones as $key => $activePhone) {
         $custName = "";

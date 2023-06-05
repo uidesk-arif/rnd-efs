@@ -16,6 +16,11 @@
         if($_GET['cmd'] == "listAgents") include "api/listAgents.php";
         if($_GET['cmd'] == "agentListGroup") include "api/agentListGroup.php";
         if($_GET['cmd'] == "multichat-validatorUser") include "api/multichat/validatorUser.php";
+        
+        
+        if($_GET['cmd'] == "exec-nodejs") include "api/nodejs.php";
+        if($_GET['cmd'] == "pds-history") include "api/pds-history.php";
+        if($_GET['cmd'] == "playback") include "api/playback.php";
     }
 
     echo json_encode($result);

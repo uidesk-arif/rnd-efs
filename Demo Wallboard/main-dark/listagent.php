@@ -584,7 +584,7 @@
               <div class="box box-widget widget-user">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
                 <div class="widget-user-header bg-img" style="background: url('../images/photo1.png') center center;" data-overlay="5">
-                  <h3 class="widget-user-username text-white">CTI Dialer Test</h3>
+                  <h3 class="widget-user-username text-white">Agent Predictive Dialer</h3>
                   <h6 class="widget-user-desc text-white">Calls Average</h6>
                   <div class="badge badge-pill badge-success font-size-16" data-toggle="tooltip" data-placement="top" title="" data-original-title="3 more">10</div>
                 </div>
@@ -610,7 +610,7 @@
                             $servername = "localhost";
                             $username = "u1495171_rnd";
                             $password = "s8O*qJpw0EvF";
-                            $dbname = "u1495171_rnd";
+                            $dbname = "u1495171_pds";
 
                             // Create connection
                             $koneksi = new mysqli($servername, $username, $password, $dbname);
@@ -619,7 +619,7 @@
                               die("Connection failed: " . $koneksi->connect_error);
                             }
 
-                            $sql = "SELECT AgentName, StatusAgent, CustName,CallDuration,StartTime, EndTime, StatusData FROM EFSDataAGentNew";
+                            $sql = "SELECT AgentName, StatusAgent, CustName, CallDuration, StartTime, EndTime, StatusData FROM EFSDataAGentNew";
                             $result = $koneksi->query($sql);
 
                             function convertToMinuteSecond($start, $end)
@@ -667,6 +667,7 @@
               </div>
               <!-- /.widget-user -->
             </div>
+            <?php /*
             <div class="col-lg-6 col-6">
               <!-- Widget: user widget style 1 -->
               <div class="box box-widget widget-user">
@@ -730,7 +731,7 @@
               </div>
               <!-- /.widget-user -->
             </div>
-
+            */ ?>
           </div>
 
         </section>
