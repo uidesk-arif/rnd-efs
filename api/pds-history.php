@@ -56,6 +56,7 @@ if (!$arr_datas['status']) die("Status: false");
         <table class="table table-bordered">
             <thead>
                 <tr>
+                    <th>Unique Id</th>
                     <th>Fullname</th>
                     <th>Phonenumber</th>
                     <th>Description</th>
@@ -71,6 +72,7 @@ if (!$arr_datas['status']) die("Status: false");
                 foreach ($arr_datas['data'] as $key => $value) {
                     // echo json_encode($value);
                     echo '<tr>
+                                <td>' . ($value['form_uniqueid'] ?? "") . '</td>
                                 <td>' . $value['form_debtors_full_name'] . '</td>
                                 <td>' . $value['form_customer_id'] . '</td>
                                 <td>' . $value['form_phone_other_description'] . '</td>

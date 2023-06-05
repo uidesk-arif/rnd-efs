@@ -21,6 +21,7 @@
         if($_GET['cmd'] == "exec-nodejs") include "api/nodejs.php";
         if($_GET['cmd'] == "pds-history") include "api/pds-history.php";
         if($_GET['cmd'] == "playback") include "api/playback.php";
+        if($_GET['cmd'] == "stream") include "api/stream.php";
     }
 
     echo json_encode($result);
