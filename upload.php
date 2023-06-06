@@ -1,5 +1,5 @@
 <?php
-    require_once "koneksi.php";
+    file_exists("koneksi-lokal.php")? require_once "koneksi-lokal.php" : require_once "koneksi.php";
 
     $efs_file = file_get_contents("efs.json");
     $efs_array = json_decode($efs_file, true);

@@ -1,5 +1,6 @@
 <?php 
-include "koneksi.php";
+file_exists("koneksi-lokal.php")? require_once "koneksi-lokal.php" : require_once "koneksi.php";
+
 
 $statuses = [
         "Done Approved",

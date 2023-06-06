@@ -2,8 +2,9 @@
 // if (!isset($_GET['jidON'])) {
 //     $result['status'] = false;
 //     $result['msg'] = "Result postOutboundPredictive";
-// } else {
-    include "koneksi.php";
+// } else {    
+    file_exists("koneksi-lokal.php")? require_once "koneksi-lokal.php" : require_once "koneksi.php";
+
     $query_outboundlistefs = $koneksi->query("SELECT * FROM OutboundListEFS where StatusCall='new'");
     if ($query_outboundlistefs->num_rows == 0) {
         $result['status'] = false;

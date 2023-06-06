@@ -1,7 +1,7 @@
 <?php
 
     header("Access-Control-Allow-Origin: *");
-    require_once "koneksi.php";
+    file_exists("koneksi-lokal.php")? require_once "koneksi-lokal.php" : require_once "koneksi.php";
     require_once "library.php";
 
     $result = ['status' => false, 'msg' => 'Access denied'];
