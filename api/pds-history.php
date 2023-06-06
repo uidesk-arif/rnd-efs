@@ -11,6 +11,17 @@ if ($arr_datas['status'] != "true") die("Status: false");
 // print_r($arr_datas);
 // echo "</pre>";
 // die;
+
+
+if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')
+    $url = "https://";
+else
+    $url = "http://";
+// Append the host(domain name, ip) to the URL.   
+$url .= $_SERVER['HTTP_HOST'];
+
+// Append the requested resource location to the URL   
+$url .= $_SERVER['REQUEST_URI'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -118,15 +129,21 @@ if ($arr_datas['status'] != "true") die("Status: false");
                     <ul class="pagination">
                         <?php
                             $page_number = (int) ($arr_datas['page'] ?? 1);
+
+                            $_GET['page'] = ((($page_number - 1) <= 1) ? 2 : $page_number) - 1;
                         ?>
-                        <li class="page-item"><a class="page-link" href="<?= ((($page_number - 1) <= 1)? 2 : $page_number)-1 ?>">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="<?= $url . '?' . http_build_query($_GET) ?>">Previous</a></li>
                         <?php
-                            for ($i=1; $i < $arr_datas['total_page']+1; $i++) { 
-                                $_GET['page'] = $i;
-                                echo '<li class="page-item '.(($arr_datas['page'] == (($i == 0)? 1 : $i))? 'active' : '').'"><a class="page-link" href="?'.http_build_query($_GET).'">'.$i.'</a></li>';
-                            }
+                        for ($i = 1; $i < $arr_datas['total_page'] + 1; $i++) {
+                            $_GET['page'] = $i;
+                            echo '<li class="page-item ' . (($arr_datas['page'] == (($i == 0) ? 1 : $i)) ? 'active' : '') . '"><a class="page-link" href="' . $url . '?' . http_build_query($_GET) . '">' . $i . '</a></li>';
+                        }
                         ?>
-                        <li class="page-item"><a class="page-link" href="<?= (($page_number < 1)? 1 : $page_number)+1 ?>">Next</a></li>
+                        <?php
+                            $_GET['page'] = (($page_number < 1) ? 1 : $page_number) + 1;
+                        ?>
+                        <li class="page-item"><a class="page-link" href="<?= $url . '?' . http_build_query($_GET) ?>">Next</a></li>
+                        
                     </ul>
                 </nav>
             </div>
