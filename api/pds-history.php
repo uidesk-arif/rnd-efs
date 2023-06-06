@@ -53,6 +53,23 @@ if (!$arr_datas['status']) die("Status: false");
     </div>
     <div id="jquery_jplayer" style="display: none;"></div>
     <div class="card card-body">
+        <form action="" method="get">
+            <input type="hidden" name="cmd" value="pds-history">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label for="start">Start Date</label>
+                    <input type="date" name="startdate" id="start" class="form-control" value="<?= $_GET['startdate'] ?? '' ?>">
+                </div>
+                <div class="col-md-6">
+                    <label for="end">End Date</label>
+                    <input type="date" name="enddate" id="end" class="form-control" value="<?= $_GET['enddate'] ?? '' ?>">
+                </div>
+    
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary w-100 mt-2">Filter</button>
+                </div>
+            </div>
+        </form>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -80,7 +97,7 @@ if (!$arr_datas['status']) die("Status: false");
                                 <td>' . $value['duration_call'] . '</td>
                                 <td>' . $value['call_date'] . '</td>
                                 <td>' . $value['extension_agent'] . '</td>
-                                <td><button type="button" class="btn btn-primary" onclick="playAudio(\'https://demo-1.c-icare.cc/outbound/report/api/playrecording?recordingfile=' . $value['recordingfile'] . '\')">' . $value['recordingfile'] . '</button></td>
+                                <td><button type="button" class="btn btn-primary" onclick="playAudio(\'https://demo-1.c-icare.cc/outbound/report/api/playrecording?recordingfile=' . $value['recordingfile'] . '\')">Play</button></td>
                             </tr>';
                 }
                 ?>
