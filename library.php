@@ -38,7 +38,7 @@ if (!function_exists("curl_get")) {
         foreach ($getParams as $key => $param) {
             $params[] = implode("=", [$key, $param]);
         }
-        $url = $url . "?" . (!empty($params) ? implode("&", $params) : "");
+        $url = (!empty($params)) ? $url . "?" . implode("&", $params) : $url;
 
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_URL, $url);
