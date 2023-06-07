@@ -56,7 +56,7 @@ $campaign_detail_response = json_decode($campaign_detail_response, true);
         }
     </style>
 </head>
-<body onload="getData()" class="hold-transition dark-skin theme-primary sidebar-collapse">
+<body class="hold-transition dark-skin theme-primary sidebar-collapse">
     <!-- Site wrapper -->
     <div class="wrapper">
 
