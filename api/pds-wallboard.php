@@ -632,7 +632,7 @@ $campaign_detail_response = json_decode($campaign_detail_response, true);
                             <div class="row">
                                 <div class="col-12">
                                     <div data-overlay="5">
-                                        &nbsp;&nbsp;&nbsp;<h4 class="box-title"><strong><a class="text-light" style="margin-left:20px;">Data Call Summary Agent</a></strong></h4>
+                                        &nbsp;&nbsp;&nbsp;<h4 class="box-title"><strong><a class="text-light" style="margin-left:20px;">Agent Monitoring</a></strong></h4>
                                         <!--<h3 class="widget-user-username text-white">SOEKARNO HATTA</h3>
                                         <h6 class="widget-user-desc text-white">Calls Average</h6><div class="badge badge-pill badge-success font-size-16" data-toggle="tooltip" data-placement="top" title="" data-original-title="3 more">10</div>-->
                                         <!-- </div>								 -->
@@ -644,7 +644,7 @@ $campaign_detail_response = json_decode($campaign_detail_response, true);
                                                         <tr>
                                                             <td width="30" style="font-weight:bold;">Agent</td>
                                                             <td width="200" style="font-weight:bold;">Call Number</td>
-                                                            <td width="50" style="font-weight:bold;text-align:center;">Call Status</td>
+                                                            <td width="50" style="font-weight:bold;text-align:center;">Agent Status</td>
                                                             <td width="50" style="font-weight:bold;text-align:center;">Trunk</td>
                                                             <td width="50" style="font-weight:bold;text-align:center;">Message</td>
                                                         </tr>
