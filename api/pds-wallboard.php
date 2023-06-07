@@ -574,7 +574,7 @@ $campaign_detail_response = json_decode($campaign_detail_response, true);
                                         <div class="box">
                                             <div class="box-body">
                                                 <h5 class="box-title text-warning">Avg Call</h5>
-                                                <h1 class="text-warning" id="DataCompleteCall"><?= floor($campaign_detail_response['stats']['update']['total_sec']/ $campaign_detail_response['statuscount']['update']['finished']) ?></h1>
+                                                <h1 class="text-warning" id="DataCompleteCall"><?= date("H:i:s", floor($campaign_detail_response['stats']['update']['total_sec']/ $campaign_detail_response['statuscount']['update']['finished'])) ?></h1>
                                             </div>
                                         </div>
                                     </center>
