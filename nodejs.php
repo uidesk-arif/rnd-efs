@@ -17,7 +17,7 @@
         while ($fetch_outboundlistefs = $query_outboundlistefs->fetch_assoc()) {
 
             $data_campaign = [
-                "form_uniqueid" => date("Ymd").uniqid().'"_"'.$fetch_outboundlistefs['JidON'],
+                "form_uniqueid" => $fetch_outboundlistefs['JidON'],
                 "form_debtors_full_name" => $fetch_outboundlistefs['CustName'],
                 "form_oldest_dpd" => "123",
                 "form_loan_balance" => "123",

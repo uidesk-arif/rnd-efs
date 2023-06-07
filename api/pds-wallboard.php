@@ -1,7 +1,7 @@
 <?php 
 # CONFIG
-$url_campaign_detail = "https://demo-1.c-icare.cc/index.php?menu=campaign_monitoring&rawmode=yes&action=getCampaignDetail&campaigntype=outgoing&campaignid=180";
 $issabel_session = $_GET['issabel_session'] ?? "iqhk7ruhokov3jfink07co40i3";
+$url_campaign_detail = "https://demo-1.c-icare.cc/index.php?menu=campaign_monitoring&rawmode=yes&action=getCampaignDetail&campaigntype=outgoing&campaignid=180";
 $clientstatehash = $_GET['clientstatehash'] ?? "7c1225151650b638f5cb382df5694024";
 $url_sse = "https://demo-1.c-icare.cc/index.php?menu=campaign_monitoring&rawmode=yes&action=checkStatus&clientstatehash=".$clientstatehash."&serverevents=true";
 
