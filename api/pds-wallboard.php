@@ -2,7 +2,7 @@
 # CONFIG
 $url_campaign_detail = "https://demo-1.c-icare.cc/index.php?menu=campaign_monitoring&rawmode=yes&action=getCampaignDetail&campaigntype=outgoing&campaignid=180";
 $issabel_session = "iqhk7ruhokov3jfink07co40i3";
-$url_sse = "https://demo-1.c-icare.cc/index.php?menu=campaign_monitoring&rawmode=yes&action=checkStatus&clientstatehash=7c1225151650b638f5cb382df5694024&serverevents=true";
+$url_sse = "https://demo-1.c-icare.cc/index.php?menu=campaign_monitoring&rawmode=yes&action=checkStatus&clientstatehash=".((isset($_GET['clientstatehash']))? $_GET['clientstatehash'] : "7c1225151650b638f5cb382df5694024")."&serverevents=true";
 
 # CODE
 $campaign_detail = curl_get($url_campaign_detail, [], ['Cookie: issabelSession='.$issabel_session]);
