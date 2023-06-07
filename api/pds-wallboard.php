@@ -25,6 +25,8 @@ $campaign_detail_response = json_decode($campaign_detail_response, true);
     <meta name="author" content="">
     <link rel="icon" href="https://asterisk.uidesk.id/rnd/Demo%20Wallboard/images/favicon.ico">
 
+    <meta http-equiv="Refresh" content="3">
+
     <title>Dashboard  Outbound Call </title>
 
     <!-- Vendors Style-->
