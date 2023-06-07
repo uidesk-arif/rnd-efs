@@ -1,8 +1,8 @@
 <?php 
 # CONFIG
 $url_campaign_detail = "https://demo-1.c-icare.cc/index.php?menu=campaign_monitoring&rawmode=yes&action=getCampaignDetail&campaigntype=outgoing&campaignid=180";
-$url_sse = "https://demo-1.c-icare.cc/index.php?menu=campaign_monitoring&rawmode=yes&action=checkStatus&clientstatehash=b8294b40ba5666cd836fedb842f8ded1&serverevents=true";
 $issabel_session = "iqhk7ruhokov3jfink07co40i3";
+$url_sse = "https://demo-1.c-icare.cc/index.php?menu=campaign_monitoring&rawmode=yes&action=checkStatus&clientstatehash=7c1225151650b638f5cb382df5694024&serverevents=true";
 
 # CODE
 $campaign_detail = curl_get($url_campaign_detail, [], ['Cookie: issabelSession='.$issabel_session]);
@@ -1151,7 +1151,7 @@ $campaign_detail_response = json_decode($campaign_detail_response, true);
     <script src="https://asterisk.uidesk.id/rnd/Demo%20Wallboard/main-dark/js/pages/echart-pie-doghnut.js"></script>
     <script src="https://asterisk.uidesk.id/rnd/Demo%20Wallboard/main-dark/js/pages/widget-morris-charts.js"></script>
 
-    <!-- <script>
+    <script>
         var url = "<?= $url_sse ?>"
 
         const evtSource = new EventSource(url);
@@ -1219,7 +1219,7 @@ $campaign_detail_response = json_decode($campaign_detail_response, true);
         //     console.log('Connection closed');
         //     evtSource.close();
         // };
-    </script> -->
+    </script>
 </body>
 </html>
 
