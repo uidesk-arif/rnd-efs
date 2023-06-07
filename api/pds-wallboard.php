@@ -640,23 +640,27 @@ $campaign_detail_response = json_decode($campaign_detail_response, true);
                                                 <table class="table" style="border:none;" id="table-summary">
                                                     <thead>
                                                         <tr>
-                                                            <td width="30" style="font-weight:bold;">Call Id</td>
+                                                            <td width="30" style="font-weight:bold;">Agent</td>
                                                             <td width="200" style="font-weight:bold;">Call Number</td>
                                                             <td width="50" style="font-weight:bold;text-align:center;">Call Status</td>
+                                                            <td width="50" style="font-weight:bold;text-align:center;">Trunk</td>
                                                             <td width="50" style="font-weight:bold;text-align:center;">Message</td>
-                                                            <td width="50" style="font-weight:bold;text-align:center;">Agent</td>
-                                                            <td width="50" style="font-weight:bold;text-align:center;">Status Agent</td>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        <?php
+                                                            foreach ($campaign_detail_response['agents']['add'] as $key => $agent) {
+                                                                echo '<tr>
+                                                                            <td>'.$agent['agent'].'</td>
+                                                                            <td>'.$agent['callnumber'].'</td>
+                                                                            <td>'.$agent['status'].'</td>
+                                                                            <td>'.$agent['trunk'].'</td>
+                                                                            <td>'.$agent['desde'].'</td>
+                                                                        </tr>';
+                                                            } 
+                                                        ?>
                                                     </tbody>
                                                 </table>
-                                                <div id="containerxx">
-                                                    <div id="div1">
-                                                        <table class="table table-hover no-border">
-                                                        </table>
-                                                    </div>
-                                                </div>
                                                 <hr />
                                             </div>
                                         </div>
@@ -1195,12 +1199,12 @@ $campaign_detail_response = json_decode($campaign_detail_response, true);
             } else {
                 $('#table-pds tbody').append(`
                     <tr id="${call_id}">
-                        <td>${call_id}</td>
-                        <td id="call_number">${call_number}</td>
-                        <td id="call_status">${call_status}</td>
-                        <td id="message">${message}</td>
-                        <td id="agent">${agent}</td>
-                        <td id="status_agent">${status_agent}</td>
+                        <td class="text-center">${call_id}</td>
+                        <td id="call_number" class="text-center">${call_number}</td>
+                        <td id="call_status" class="text-center">${call_status}</td>
+                        <td id="message" class="text-center">${message}</td>
+                        <td id="agent" class="text-center">${agent}</td>
+                        <td id="status_agent" class="text-center">${status_agent}</td>
                     </tr>
                 `)
             }
